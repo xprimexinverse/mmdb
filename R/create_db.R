@@ -32,5 +32,8 @@ create_db <- function(){
   # Add column names
   colnames(db_obj@db)  <- c("Time", "Trend")
 
+  # Add row names
+  # rownames(db_obj@db)[5:length(rownames(db_obj@db))] <- db_obj@db[5:length(rownames(db_obj@db)), 1]
+
   return(db_obj)
 }

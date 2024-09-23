@@ -48,5 +48,8 @@ add_db <- function(db_obj, series){
   # Add column names
   colnames(db_obj@db)[length(colnames(db_obj@db))] <- deparse(substitute(series))
 
+  # Add row names
+  rownames(db_obj@db)[5:length(rownames(db_obj@db))] <- db_obj@db[5:length(rownames(db_obj@db)), 1]
+
   return(db_obj)
 }
