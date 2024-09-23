@@ -1,10 +1,10 @@
 Package: mmdb
-Title: What the Package Does (One Line, Title Case)
+Title: S4 classes for Macro Modelling Databases 
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+    person("Graeme", "Walsh", , "graeme.walsh@hotmail.co.uk", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: The package provides S4 classes for organising time-series data and metadata.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
