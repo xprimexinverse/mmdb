@@ -1,3 +1,12 @@
+#' Add a series to a database
+#'
+#' @param db_obj db-obj.
+#' @param series series-obj.
+#'
+#' @return db-obj
+#' @export
+#'
+#' @examples
 add_db <- function(db_obj, series){
 
   # Get number of series in the database
@@ -13,10 +22,19 @@ add_db <- function(db_obj, series){
   db_obj@data <- cbind(db_obj@data, series@raw_data)
 
   # Update the time and trend variables in slot 1 and 2 [TODO]
-  # series1     <- new("series-obj", description="Trend", units="2000Q1=1", raw_data = ts(1:100, start=c(2000, 1), frequency = 4))
-  # series1time <- new("series-obj", description="Trend", units="2000Q1=2000", raw_data = time(series1@raw_data), frequency = 4)
-  # dbo@series[[1]] <- series1time
-  # dbo@series[[2]] <- series1
+  series2 <- new("series-obj", description="Trend", units=paste0(paste(as.character(start(db_obj@data)),collapse = "Q"),"=1"), raw_data = ts(1:length(series@raw_data), start=start(series@raw_data), frequency = 4))
+  series1 <- new("series-obj", description="Time", units="Time", raw_data = time(db_obj@data), frequency = 4)
+
+  # Add the two series to the database object
+  db_obj@series[[1]] <- series1 # Time
+  db_obj@series[[2]] <- series2 # Trend
+
+  # Add the raw data to the database object
+  db_obj@data[,1] <- series1@raw_data
+  db_obj@data[,2] <- series2@raw_data
+
+  # Update the units for the trend
+  db_obj@db[3,2] <- paste0(paste(as.character(start(db_obj@data)),collapse = "Q"),"=1")
 
   # Create the metadata
   varname <- c(db_obj@db[1,], deparse(substitute(series)))
@@ -26,6 +44,9 @@ add_db <- function(db_obj, series){
 
   # Add the metadata and data to the database object
   db_obj@db <- rbind(varname, descrip, unis, src, db_obj@data)
+
+  # Add column names
+  colnames(db_obj@db)[length(colnames(db_obj@db))] <- deparse(substitute(series))
 
   return(db_obj)
 }
