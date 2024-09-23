@@ -24,7 +24,30 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(mmdb)
-## basic example code
+
+trend <- new("series-obj", description="Trend", raw_data = ts(1:10, start = c(2000, 1), frequency = 4))
+time  <- new("series-obj", description="Time", raw_data = ts(seq(from = 2000, length.out = 10, by = 0.25), start = c(2000, 1), frequency = 4))
+
+my_db <- mmdb::create_db()
+
+x <- new("series-obj", description="X", raw_data = ts(rnorm(15), start = c(1999, 1), frequency = 4), table = "rnorm", units = "number")
+y <- new("series-obj", description="Y", raw_data = ts(rnorm(30), start = c(1999, 1), frequency = 4), table = "rnorm", units = "number")
+
+my_db <- mmdb::add_db(my_db, x)
+my_db <- mmdb::add_db(my_db, y)
+
+head(my_db@db,n=10)
+#>         Time          Trend      x                    y                    
+#> varname "Variable"    "T"        "x"                  "y"                  
+#> descrip "Description" "Trend"    "X"                  "Y"                  
+#> unis    "Units"       "1999Q1=1" "number"             "number"             
+#> src     "Source"      "Formula"  "rnorm"              "rnorm"              
+#>         "1999"        "1"        "0.994073444626497"  "0.886711125130727"  
+#>         "1999.25"     "2"        "0.0835976423752953" "-0.868561944915427" 
+#>         "1999.5"      "3"        "0.375169630916918"  "0.550567489424181"  
+#>         "1999.75"     "4"        "0.0352623295102396" "-1.13865011108788"  
+#>         "2000"        "5"        "-0.486287295772744" "0.325842764573239"  
+#>         "2000.25"     "6"        "0.809493933582733"  "-0.0375090414304081"
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`?
