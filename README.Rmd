@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 UNDER CONSTRUCTION - come back later...
 
-The goal of mmdb is to provide a set of data structures (S4 classes) and tools to be able to create and a lightweight database for macroeconomic modelling.
+The goal of mmdb is to provide a set of data structures (S4 classes) and tools to be able to create a lightweight database for macroeconomic modelling.
 
 ## Installation
 
