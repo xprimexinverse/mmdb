@@ -22,8 +22,8 @@ add_db <- function(db_obj, series){
   db_obj@data <- cbind(db_obj@data, series@raw_data)
 
   # Update the time and trend variables in slot 1 and 2
-  series2 <- new("series-obj", description="Trend", units=paste0(paste(as.character(start(db_obj@data)),collapse = "Q"),"=1"), raw_data = ts(1:nrow(db_obj@data), start=start(db_obj@data), frequency = 4))
-  series1 <- new("series-obj", description="Time", units="Time", raw_data = time(db_obj@data), frequency = 4)
+  series2 <- methods::new("series-obj", description="Trend", units=paste0(paste(as.character(stats::start(db_obj@data)),collapse = "Q"),"=1"), raw_data = stats::ts(1:nrow(db_obj@data), start = stats::start(db_obj@data), frequency = 4))
+  series1 <- methods::new("series-obj", description="Time", units="Time", raw_data = stats::time(db_obj@data))
 
   # Add the two series to the database object
   db_obj@series[[1]] <- series1 # Time
@@ -34,7 +34,7 @@ add_db <- function(db_obj, series){
   db_obj@data[,2] <- series2@raw_data
 
   # Update the units for the trend
-  db_obj@db[3,2] <- paste0(paste(as.character(start(db_obj@data)),collapse = "Q"),"=1")
+  db_obj@db[3,2] <- paste0(paste(as.character(stats::start(db_obj@data)),collapse = "Q"),"=1")
 
   # Create the metadata
   varname <- c(db_obj@db[1,], deparse(substitute(series)))
