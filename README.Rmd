@@ -43,8 +43,8 @@ time  <- new("series-obj", description="Time", raw_data = ts(seq(from = 2000, le
 
 my_db <- mmdb::create_db()
 
-x <- new("series-obj", description="X", raw_data = ts(rnorm(15), start = c(1999, 1), frequency = 4), table = "rnorm", units = "number")
-y <- new("series-obj", description="Y", raw_data = ts(rnorm(30), start = c(1999, 1), frequency = 4), table = "rnorm", units = "number")
+x <- new("series-obj", description="simulated data 1", raw_data = ts(rnorm(15), start = c(1999, 1), frequency = 4), table = "rnorm", units = "number")
+y <- new("series-obj", description="simulated data 2", raw_data = ts(rnorm(30), start = c(1995, 1), frequency = 4), table = "rnorm", units = "number")
 
 my_db <- mmdb::add_db(my_db, x)
 my_db <- mmdb::add_db(my_db, y)

@@ -35,22 +35,22 @@ time  <- new("series-obj", description="Time", raw_data = ts(seq(from = 2000, le
 
 my_db <- mmdb::create_db()
 
-x <- new("series-obj", description="X", raw_data = ts(rnorm(15), start = c(1999, 1), frequency = 4), table = "rnorm", units = "number")
-y <- new("series-obj", description="Y", raw_data = ts(rnorm(30), start = c(1999, 1), frequency = 4), table = "rnorm", units = "number")
+x <- new("series-obj", description="simulated data 1", raw_data = ts(rnorm(15), start = c(1999, 1), frequency = 4), table = "rnorm", units = "number")
+y <- new("series-obj", description="simulated data 2", raw_data = ts(rnorm(30), start = c(1995, 1), frequency = 4), table = "rnorm", units = "number")
 
 my_db <- mmdb::add_db(my_db, x)
 my_db <- mmdb::add_db(my_db, y)
 
 head(my_db@db,n=10)
-#>         Time          Trend      x                    y                   
-#> varname "Variable"    "T"        "x"                  "y"                 
-#> descrip "Description" "Trend"    "X"                  "Y"                 
-#> unis    "Units"       "1999Q1=1" "number"             "number"            
-#> src     "Source"      "Formula"  "rnorm"              "rnorm"             
-#> 1999    "1999"        "1"        "0.833242702052301"  "0.258526503510622" 
-#> 1999.25 "1999.25"     "2"        "-0.202587995703175" "0.861393918458616" 
-#> 1999.5  "1999.5"      "3"        "1.81052494528398"   "-1.83115784055647" 
-#> 1999.75 "1999.75"     "4"        "0.0274990455695406" "0.731470360933202" 
-#> 2000    "2000"        "5"        "-1.30044983050699"  "-0.664762081840303"
-#> 2000.25 "2000.25"     "6"        "0.206957613798921"  "0.834460302830218"
+#>         Time          Trend      x                  y                   
+#> varname "Variable"    "T"        "x"                "y"                 
+#> descrip "Description" "Trend"    "simulated data 1" "simulated data 2"  
+#> unis    "Units"       "1995Q1=1" "number"           "number"            
+#> src     "Source"      "Formula"  "rnorm"            "rnorm"             
+#> 1995    "1995"        "1"        NA                 "0.566664004979733" 
+#> 1995.25 "1995.25"     "2"        NA                 "1.54246020700802"  
+#> 1995.5  "1995.5"      "3"        NA                 "1.05943615767794"  
+#> 1995.75 "1995.75"     "4"        NA                 "0.974758621154468" 
+#> 1996    "1996"        "5"        NA                 "-0.233933633349589"
+#> 1996.25 "1996.25"     "6"        NA                 "-0.822215334215772"
 ```
