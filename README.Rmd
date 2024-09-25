@@ -49,6 +49,6 @@ y <- new("series-obj", description="simulated data 2", raw_data = ts(rnorm(30), 
 my_db <- mmdb::add_db(my_db, x)
 my_db <- mmdb::add_db(my_db, y)
 
-head(my_db@db,n=10)
+my_db@db
 
 ```
