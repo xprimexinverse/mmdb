@@ -21,8 +21,8 @@ add_db <- function(db_obj, series){
   # Add the raw data to the database object
   db_obj@data <- cbind(db_obj@data, series@raw_data)
 
-  # Update the time and trend variables in slot 1 and 2 [TODO]
-  series2 <- new("series-obj", description="Trend", units=paste0(paste(as.character(start(db_obj@data)),collapse = "Q"),"=1"), raw_data = ts(1:length(series@raw_data), start=start(series@raw_data), frequency = 4))
+  # Update the time and trend variables in slot 1 and 2
+  series2 <- new("series-obj", description="Trend", units=paste0(paste(as.character(start(db_obj@data)),collapse = "Q"),"=1"), raw_data = ts(1:nrow(db_obj@data), start=start(db_obj@data), frequency = 4))
   series1 <- new("series-obj", description="Time", units="Time", raw_data = time(db_obj@data), frequency = 4)
 
   # Add the two series to the database object
