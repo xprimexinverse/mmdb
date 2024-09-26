@@ -13,6 +13,7 @@
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="S4 classes for Macro Modelling Databases">
 <meta name="description" content="The package provides S4 classes for organising time-series data and metadata.">
 <meta property="og:description" content="The package provides S4 classes for organising time-series data and metadata.">
+<meta property="og:image" content="https://xprimexinverse.github.io/mmdb/logo.png">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -45,8 +46,11 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="mmdb">mmdb<a class="anchor" aria-label="anchor" href="#mmdb"></a>
-</h1></div>
+<div class="page-header">
+<img src="logo.png" class="logo" alt=""><h1 id="mmdb">mmdb<a class="anchor" aria-label="anchor" href="#mmdb"></a>
+</h1>
+</div>
+<p><a href="https://xprimexinverse.github.io/mmdb/"><img src="reference/figures/logo.png" align="right" height="139" alt="mmdb website"></a></p>
 <!-- badges: start -->
 <!-- badges: end -->
 <p>UNDER CONSTRUCTION - come back later…</p>
@@ -78,42 +82,42 @@
 <span><span class="va">my_db</span> <span class="op">&lt;-</span> <span class="fu">mmdb</span><span class="fu">::</span><span class="fu"><a href="reference/add_db.html">add_db</a></span><span class="op">(</span><span class="va">my_db</span>, <span class="va">y</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">my_db</span><span class="op">@</span><span class="va">db</span></span>
-<span><span class="co">#&gt;         Time          Trend      x                     y                    </span></span>
-<span><span class="co">#&gt; varname "Variable"    "T"        "x"                   "y"                  </span></span>
-<span><span class="co">#&gt; descrip "Description" "Trend"    "simulated data 1"    "simulated data 2"   </span></span>
-<span><span class="co">#&gt; unis    "Units"       "1995Q1=1" "number"              "number"             </span></span>
-<span><span class="co">#&gt; src     "Source"      "Formula"  "rnorm"               "rnorm"              </span></span>
-<span><span class="co">#&gt; 1995    "1995"        "1"        NA                    "0.435099843610337"  </span></span>
-<span><span class="co">#&gt; 1995.25 "1995.25"     "2"        NA                    "0.305436920030802"  </span></span>
-<span><span class="co">#&gt; 1995.5  "1995.5"      "3"        NA                    "-0.0110325178638104"</span></span>
-<span><span class="co">#&gt; 1995.75 "1995.75"     "4"        NA                    "0.134944259210326"  </span></span>
-<span><span class="co">#&gt; 1996    "1996"        "5"        NA                    "0.582760591220262"  </span></span>
-<span><span class="co">#&gt; 1996.25 "1996.25"     "6"        NA                    "1.27927660760226"   </span></span>
-<span><span class="co">#&gt; 1996.5  "1996.5"      "7"        NA                    "0.197373529213436"  </span></span>
-<span><span class="co">#&gt; 1996.75 "1996.75"     "8"        NA                    "0.737865268831942"  </span></span>
-<span><span class="co">#&gt; 1997    "1997"        "9"        NA                    "-0.0302439819025905"</span></span>
-<span><span class="co">#&gt; 1997.25 "1997.25"     "10"       NA                    "-0.0960386228847986"</span></span>
-<span><span class="co">#&gt; 1997.5  "1997.5"      "11"       NA                    "-0.195295218548045" </span></span>
-<span><span class="co">#&gt; 1997.75 "1997.75"     "12"       NA                    "2.22701626865563"   </span></span>
-<span><span class="co">#&gt; 1998    "1998"        "13"       NA                    "-1.74374232897799"  </span></span>
-<span><span class="co">#&gt; 1998.25 "1998.25"     "14"       NA                    "0.0853844308129567" </span></span>
-<span><span class="co">#&gt; 1998.5  "1998.5"      "15"       NA                    "-1.66842297691403"  </span></span>
-<span><span class="co">#&gt; 1998.75 "1998.75"     "16"       NA                    "-0.488824155967965" </span></span>
-<span><span class="co">#&gt; 1999    "1999"        "17"       "-0.144047681850214"  "-0.615256584754332" </span></span>
-<span><span class="co">#&gt; 1999.25 "1999.25"     "18"       "-0.199239772888886"  "1.79092342309286"   </span></span>
-<span><span class="co">#&gt; 1999.5  "1999.5"      "19"       "-0.456046654102201"  "-0.494687506262408" </span></span>
-<span><span class="co">#&gt; 1999.75 "1999.75"     "20"       "0.929260552490954"   "0.728638576656554"  </span></span>
-<span><span class="co">#&gt; 2000    "2000"        "21"       "0.917782616313169"   "-0.335969133279319" </span></span>
-<span><span class="co">#&gt; 2000.25 "2000.25"     "22"       "-0.506481044995014"  "0.668837365475544"  </span></span>
-<span><span class="co">#&gt; 2000.5  "2000.5"      "23"       "-0.579940255442724"  "-0.530927668841117" </span></span>
-<span><span class="co">#&gt; 2000.75 "2000.75"     "24"       "-0.297229958409657"  "-0.930358270125055" </span></span>
-<span><span class="co">#&gt; 2001    "2001"        "25"       "0.906989608718692"   "-1.00431526273849"  </span></span>
-<span><span class="co">#&gt; 2001.25 "2001.25"     "26"       "0.877997753693302"   "-0.582863601428777" </span></span>
-<span><span class="co">#&gt; 2001.5  "2001.5"      "27"       "-0.0376480185950761" "-0.403854118029326" </span></span>
-<span><span class="co">#&gt; 2001.75 "2001.75"     "28"       "-1.23169956294476"   "-1.09661563290071"  </span></span>
-<span><span class="co">#&gt; 2002    "2002"        "29"       "2.89438166558774"    "0.422179720172542"  </span></span>
-<span><span class="co">#&gt; 2002.25 "2002.25"     "30"       "1.00255881443016"    "1.28871267409435"   </span></span>
-<span><span class="co">#&gt; 2002.5  "2002.5"      "31"       "-0.713760019749405"  NA</span></span></code></pre></div>
+<span><span class="co">#&gt;         Time          Trend      x                    y                     </span></span>
+<span><span class="co">#&gt; varname "Variable"    "T"        "x"                  "y"                   </span></span>
+<span><span class="co">#&gt; descrip "Description" "Trend"    "simulated data 1"   "simulated data 2"    </span></span>
+<span><span class="co">#&gt; unis    "Units"       "1995Q1=1" "number"             "number"              </span></span>
+<span><span class="co">#&gt; src     "Source"      "Formula"  "rnorm"              "rnorm"               </span></span>
+<span><span class="co">#&gt; 1995    "1995"        "1"        NA                   "0.46935823825687"    </span></span>
+<span><span class="co">#&gt; 1995.25 "1995.25"     "2"        NA                   "-1.36874765309818"   </span></span>
+<span><span class="co">#&gt; 1995.5  "1995.5"      "3"        NA                   "-0.782394768326111"  </span></span>
+<span><span class="co">#&gt; 1995.75 "1995.75"     "4"        NA                   "0.518052621651203"   </span></span>
+<span><span class="co">#&gt; 1996    "1996"        "5"        NA                   "1.95184137008304"    </span></span>
+<span><span class="co">#&gt; 1996.25 "1996.25"     "6"        NA                   "0.0365104989877566"  </span></span>
+<span><span class="co">#&gt; 1996.5  "1996.5"      "7"        NA                   "-0.863109386491993"  </span></span>
+<span><span class="co">#&gt; 1996.75 "1996.75"     "8"        NA                   "1.90338489582371"    </span></span>
+<span><span class="co">#&gt; 1997    "1997"        "9"        NA                   "0.613903388469461"   </span></span>
+<span><span class="co">#&gt; 1997.25 "1997.25"     "10"       NA                   "-0.517142458154492"  </span></span>
+<span><span class="co">#&gt; 1997.5  "1997.5"      "11"       NA                   "0.000581409211890919"</span></span>
+<span><span class="co">#&gt; 1997.75 "1997.75"     "12"       NA                   "-0.987861034741544"  </span></span>
+<span><span class="co">#&gt; 1998    "1998"        "13"       NA                   "-0.311954358932907"  </span></span>
+<span><span class="co">#&gt; 1998.25 "1998.25"     "14"       NA                   "-0.675603454254265"  </span></span>
+<span><span class="co">#&gt; 1998.5  "1998.5"      "15"       NA                   "-0.452555221662718"  </span></span>
+<span><span class="co">#&gt; 1998.75 "1998.75"     "16"       NA                   "0.124014818706994"   </span></span>
+<span><span class="co">#&gt; 1999    "1999"        "17"       "0.29317392455371"   "-0.868555694995367"  </span></span>
+<span><span class="co">#&gt; 1999.25 "1999.25"     "18"       "0.907437098986886"  "0.268759578965299"   </span></span>
+<span><span class="co">#&gt; 1999.5  "1999.5"      "19"       "-0.416935555521663" "0.429892257082258"   </span></span>
+<span><span class="co">#&gt; 1999.75 "1999.75"     "20"       "-0.599745899538752" "0.551067505262942"   </span></span>
+<span><span class="co">#&gt; 2000    "2000"        "21"       "-0.210282362053429" "1.3643902339371"     </span></span>
+<span><span class="co">#&gt; 2000.25 "2000.25"     "22"       "-0.668810300903699" "-0.8895642197107"    </span></span>
+<span><span class="co">#&gt; 2000.5  "2000.5"      "23"       "-2.15254060555"     "1.55197547028612"    </span></span>
+<span><span class="co">#&gt; 2000.75 "2000.75"     "24"       "1.32385673709543"   "-0.376010845860997"  </span></span>
+<span><span class="co">#&gt; 2001    "2001"        "25"       "1.74498196950422"   "-1.27333052579055"   </span></span>
+<span><span class="co">#&gt; 2001.25 "2001.25"     "26"       "1.54325057556048"   "-1.82695016220219"   </span></span>
+<span><span class="co">#&gt; 2001.5  "2001.5"      "27"       "0.112645115755676"  "-2.39852795901949"   </span></span>
+<span><span class="co">#&gt; 2001.75 "2001.75"     "28"       "0.620362052974323"  "-1.63383172169487"   </span></span>
+<span><span class="co">#&gt; 2002    "2002"        "29"       "1.03180741315992"   "0.341261381613333"   </span></span>
+<span><span class="co">#&gt; 2002.25 "2002.25"     "30"       "0.933345940467668"  "0.644212636650992"   </span></span>
+<span><span class="co">#&gt; 2002.5  "2002.5"      "31"       "0.940706872798723"  NA</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
