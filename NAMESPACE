@@ -2,5 +2,6 @@
 
 export(add_db)
 export(create_db)
+export(create_tex)
 exportClasses("db-obj")
 exportClasses("series-obj")
