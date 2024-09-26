@@ -3,7 +3,7 @@ Title: S4 classes for Macro Modelling Databases
 Version: 0.0.0.9000
 Authors@R: 
     person("Graeme", "Walsh", , "graeme.walsh@hotmail.co.uk", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           comment = c(ORCID = "0009-0005-9190-376X"))
 Description: The package provides S4 classes for organising time-series data and metadata.
 License: MIT + file LICENSE
 Encoding: UTF-8
