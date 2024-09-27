@@ -31,6 +31,7 @@ create_tex <- function(db_obj, filename, title, author, version){
   write("library(plotly)",                 file = filename, append = TRUE)
   write("library(statbanktools)",          file = filename, append = TRUE)
   write("library(mmdb)",                   file = filename, append = TRUE)
+  write("library(Hmisc)",                  file = filename, append = TRUE)
   write("@",                               file = filename, append = TRUE)
   write(" ",                               file = filename, append = TRUE)
 
@@ -45,6 +46,36 @@ create_tex <- function(db_obj, filename, title, author, version){
 
   # Write chunks for each variable in the database (excluding time and trend)
   for(i in colnames(db_obj@db)[-c(1:2)]){
+
+    tex_var   <- latexTranslate(i)
+    tex_desc  <- latexTranslate(paste0(get(i)@description,collapse = ", "))
+    tex_units <- latexTranslate(paste0(get(i)@units,collapse = ", "))
+    tex_src   <- latexTranslate(get(i)@table)
+
+    # TABLE
+    write(paste0("\\section*{",tex_var,"}"), file = filename, append = TRUE)
+    #% \hskip-0.10cm
+    write("\\begin{tabular}{ p{0.18\\linewidth} | p{0.6\\linewidth}  }", file = filename, append = TRUE)
+    write(paste0("\\textbf{Variable} & ",tex_var," \\\\"), file = filename, append = TRUE)
+    write("\\hline \\\\",file = filename, append = TRUE)
+    write(paste0("\\textbf{Description} & ",tex_desc,"  \\\\"),file = filename, append = TRUE)
+    write("\\hline \\\\",file = filename, append = TRUE)
+    write(paste0("\\textbf{Units} & ",tex_units," \\\\"),file = filename, append = TRUE)
+    write("\\hline \\\\",file = filename, append = TRUE)
+    write(paste0("\\textbf{Source} & ",tex_src," \\\\"),file = filename, append = TRUE)
+    write("\\hline \\\\",file = filename, append = TRUE)
+    write(paste0("\\textbf{Start} & \\Sexpr{start(",i,"@data[,'level'])[1]} \\\\"),file = filename, append = TRUE)
+    write("\\hline \\\\",file = filename, append = TRUE)
+    write(paste0("\\textbf{End} & \\Sexpr{end(",i,"@data[,'level'])[1]} \\\\"),file = filename, append = TRUE)
+    write("\\hline \\\\",file = filename, append = TRUE)
+    write(paste0("\\textbf{No. Obs.} & \\Sexpr{length(",i,"@data[,'level'])} \\\\"),file = filename, append = TRUE)
+    write("\\hline \\\\",file = filename, append = TRUE)
+    write("\\textbf{Note} &  (none) \\\\",file = filename, append = TRUE)
+    write("\\hline",file = filename, append = TRUE)
+    write("\\end{tabular}",file = filename, append = TRUE)
+    write(" ", file = filename, append = TRUE)
+
+    # CHARTS
     write("<<echo=FALSE,fig=TRUE>>=",      file = filename, append = TRUE)
     write("par(family = 'Times')",         file = filename, append = TRUE)
     write("nf <- layout(matrix(c(1,1,1,1,2,3,2,3), nrow = 4, byrow = TRUE))", file = filename, append = TRUE)
