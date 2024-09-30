@@ -38,8 +38,8 @@ add_db <- function(db_obj, series){
 
   # Create the metadata
   varname <- c(db_obj@db[1,], deparse(substitute(series)))
-  descrip <- c(db_obj@db[2,], series@description[1])
-  unis    <- c(db_obj@db[3,], series@units[1])
+  descrip <- c(db_obj@db[2,], paste0(series@description, collapse = ", "))
+  unis    <- c(db_obj@db[3,], paste0(series@units, collapse = ", "))
   src     <- c(db_obj@db[4,], series@table)
 
   # Add the metadata and data to the database object
