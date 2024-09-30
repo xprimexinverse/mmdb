@@ -47,10 +47,10 @@ create_tex <- function(db_obj, filename, title, author, version){
   # Write chunks for each variable in the database (excluding time and trend)
   for(i in colnames(db_obj@db)[-c(1:2)]){
 
-    tex_var   <- latexTranslate(i)
-    tex_desc  <- latexTranslate(paste0(get(i)@description,collapse = ", "))
-    tex_units <- latexTranslate(paste0(get(i)@units,collapse = ", "))
-    tex_src   <- latexTranslate(get(i)@table)
+    tex_var   <- Hmisc::latexTranslate(i)
+    tex_desc  <- Hmisc::latexTranslate(paste0(get(i)@description,collapse = ", "))
+    tex_units <- Hmisc::latexTranslate(paste0(get(i)@units,collapse = ", "))
+    tex_src   <- Hmisc::latexTranslate(get(i)@table)
 
     # TABLE
     write(paste0("\\section*{",tex_var,"}"), file = filename, append = TRUE)
